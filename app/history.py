@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import logging
 from typing import Any
-from app.calculatorOperations import CalculatorOperations
+from app.calculator_operations import CalculatorOperations
 
 class HistoryObserver(ABC):
     """Abstract class for calculator observers."""

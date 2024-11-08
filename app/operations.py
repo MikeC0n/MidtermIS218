@@ -8,7 +8,7 @@ class Operation(ABC): # ABC class, sets up abstraction
     """Abstraction for calulator operations"""
 
     @abstractmethod
-    def execute(self,a: Decimal, b: Decimal) -> Decimal: #Typing Hints
+    def execute(self, a: Decimal, b: Decimal) -> Decimal: #Typing Hints
         """ 
         Execute Operation
         
@@ -24,7 +24,7 @@ class Operation(ABC): # ABC class, sets up abstraction
         """
         pass
 
-    def validate_operands(sellf, a: Decimal, b: Decimal) -> None: # Example of data validation, sanitize inputs before completion
+    def validate_operands(self, a: Decimal, b: Decimal) -> None: # Example of data validation, sanitize inputs before completion
         """
         Data Validation before execution
 
@@ -69,21 +69,21 @@ class Multiplication(Operation):
 class Division(Operation):
     """Division Operation"""
 
-    def execute(self, a: Decimal, b: Decimal) -> None:
-        """Validation of inputs, checking for divide by zero error"""
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """Validate inputs, checking for divide by zero error."""
         super().validate_operands(a, b)
         if b == 0:
             raise ValidationError("Division by zero is not allowed")
-        
+
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        """Division of a by b."""
+        """Divide a by b."""
         self.validate_operands(a, b)
         return a / b
 
 class Power(Operation):
     """Exponential Function"""
 
-    def validate_operands(sellf, a: Decimal, b: Decimal) -> None:
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
         """Validate input for accepted exponents"""
         super().validate_operands(a, b)
         if b < 0:
@@ -97,7 +97,7 @@ class Power(Operation):
 class Root(Operation):
     """Root Function"""
 
-    def validate_operands(sellf, a: Decimal, b: Decimal) -> None:
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
         """Validate inputs for root operation"""
         super().validate_operands(a, b)
         if a < 0:

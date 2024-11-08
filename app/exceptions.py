@@ -1,3 +1,9 @@
+"""
+Custom exception classes for the calculator application.
+
+This module defines custom exceptions used throughout the calculator application,
+providing a clear hierarchy and specific error handling.
+"""
 class CalculatorError(Exception):
     """Parent class for calculator exception handling."""
     pass

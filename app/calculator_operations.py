@@ -1,3 +1,10 @@
+"""
+Calculator operations module.
+
+Defines the CalculatorOperations class, which represents a single calculation operation,
+performs the calculation, and provides methods for serialization and deserialization.
+"""
+
 from dataclasses import dataclass, field
 import datetime # Document accurate time
 from decimal import Decimal, InvalidOperation
@@ -75,7 +82,7 @@ class CalculatorOperations:
             Dict containing the calculator operation data in serializable format
         """
         return {
-            'opperation': self.operation,
+            'operation': self.operation,
             'operand1': str(self.operand1),
             'operand2': str(self.operand2),
             'result': str(self.result),
@@ -137,10 +144,11 @@ class CalculatorOperations:
             Detailed string showing all calculation attributes
         """
         return (
-            f"Calculation(operation='{self.operation}', "
+            f"CalculatorOperations(operation='{self.operation}', "
             f"operand1={self.operand1}, "
             f"operand2={self.operand2}, "
             f"result={self.result}, "
+            f"timestamp={self.timestamp.isoformat()})"
         )
     
     def __eq__(self, other: object) -> bool:

@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional, Union
 
 import pandas as pd
 # Modular programming
-from app.calculatorOperations import CalculatorOperations
+from app.calculator_operations import CalculatorOperations
 from app.calculator_config import CalculatorConfig
 from app.exceptions import OperationError, ValidationError
 from app.history import AutoSaveObserver, HistoryObserver, LoggingObserver

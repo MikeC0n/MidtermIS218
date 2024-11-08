@@ -7,7 +7,7 @@ from typing import Any, Dict
 from app.exceptions import OperationError
 
 @dataclass
-class calculatorOperations:
+class CalculatorOperations:
     """Object representing a single operation."""
     
     # Required fields
@@ -83,7 +83,7 @@ class calculatorOperations:
         }
     
     @staticmethod
-    def from_dict(data: Dict[str, Any]) -> 'calculatorOperations':
+    def from_dict(data: Dict[str, Any]) -> 'CalculatorOperations':
         """
         Create calculation operation form dictionary for redo function.
 
@@ -98,7 +98,7 @@ class calculatorOperations:
         """
         try:
             # Create the calculatorOperations object with the original operands
-            calc = calculatorOperations(
+            calc = CalculatorOperations(
                 operation=data['operation'],
                 operand1=Decimal(data['operand1']),
                 operand2=Decimal(data['operand2'])
@@ -153,7 +153,7 @@ class calculatorOperations:
         Returns:
             True if calculations are equall, False otherwise
         """
-        if not isinstance(other, calculatorOperations):
+        if not isinstance(other, CalculatorOperations):
             return NotImplemented
         return (
             self.operation == other.operation and

@@ -69,14 +69,14 @@ class Multiplication(Operation):
 class Division(Operation):
     """Division Operation"""
 
-    def execute(self, a: Decimal, b: Decimal) -> None:
-        """Validation of inputs, checking for divide by zero error"""
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """Validate inputs, checking for divide by zero error."""
         super().validate_operands(a, b)
         if b == 0:
             raise ValidationError("Division by zero is not allowed")
-        
+
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        """Division of a by b."""
+        """Divide a by b."""
         self.validate_operands(a, b)
         return a / b
 

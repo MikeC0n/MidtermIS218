@@ -128,7 +128,8 @@ def test_load_history(calculator):
         'result': '5',
         'timestamp': datetime.datetime.now().isoformat()
     }])
-    with patch('pandas.read_csv', return_value=data):
+    with patch('app.calculator.Path.exists', return_value=True), \
+        patch('pandas.read_csv', return_value=data):
         calculator.load_history()
         assert len(calculator.history) == 1
         calc_op = calculator.history[0]

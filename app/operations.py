@@ -39,7 +39,7 @@ class Operation(ABC): # ABC class, sets up abstraction
 
     def __str__(self) -> str:
         """Return operation name for display (ex. additon, subtraction, etc.)"""
-        return self._class_._name_
+        return self.__class__.__name__
 
 """SOLID Principle, all classes perform one action"""
 class Addition(Operation): # Polymorphism (Operation)
@@ -148,7 +148,7 @@ class OperationFactory:
         Raises:
             ValueError: If the operation does not exist
         """
-        operation_class = cls.operations.get(operation_type.lower())
+        operation_class = cls._operations.get(operation_type.lower())
         if not operation_class:
             raise ValueError(f"Unknown operation: {operation_type}")
         return operation_class()

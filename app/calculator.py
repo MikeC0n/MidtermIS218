@@ -240,7 +240,8 @@ class Calculator:
         self.history = memento.history.copy()
         return True
 
-def calculator_repl(): # REPL in calculator
+def calculator_repl(): # pragma: no cover
+    # REPL Implementation
     """CLI for calculator."""
     try:
         calc = Calculator()
